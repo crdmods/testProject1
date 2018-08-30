@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,10 +20,12 @@ import com.relevantcodes.extentreports.LogStatus;
 
 // Test commit 2
 
+//Test commit 3
+
 public class Pre_prod_clifbar_mm {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
-		System.setProperty("webdriver.chrome.driver", "D:\\SE\\DRIVERS\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "E:\\myse\\drivers\\chromedriver.exe");
 		ChromeDriver rahul= new ChromeDriver();
 		
 ExtentReports er=new ExtentReports("ClifbarResults.html",true);
@@ -152,7 +157,8 @@ w5.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='Rep
 	rahul.findElement(By.xpath("(//span[text()='Delete'])[2]")).click();
 	//Thread.sleep(2000);
 	rahul.findElement(By.xpath("(//span[@class='ui-btn-text' and text()='Yes'])[1]")).click();
-
+	et.log(LogStatus.PASS, "Report succesfully delated");
+	
 	//Thread.sleep(4000);
 	//findElement is not working in this scenerio so used WebDriverWait
 WebDriverWait w6=new WebDriverWait(rahul,50);
@@ -187,8 +193,7 @@ FileUtils.copyFile(src3,dst3);
 System.out.println("Opening Existing Report is Successful");
 et.log(LogStatus.PASS, "Opening Existing Report is Successful");
 et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\3_Opening Existing Report is Successful.png"));
-er.endTest(et);
-er.flush();
+
 //Exporting the report
 
 	rahul.findElement(By.xpath("// li[@id='result-view_Options']")).click();
@@ -198,7 +203,9 @@ er.flush();
 	FileUtils.copyFile(src4,dst4);
 	System.out.println("Exporting Report is Successful");
 	rahul.findElement(By.xpath("//li[@id='result-view_export' and @class='report-Action']")).click();
-		
+	et.log(LogStatus.PASS, "Exporting Report is Successful");
+	et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\4_Exporting Report is Successful.png"));
+			
 Thread.sleep(12000);
 
 	//unable to insert conditional wait since there is no element to find
@@ -241,7 +248,9 @@ File src6=rahul.getScreenshotAs(OutputType.FILE);
 File dst6=new File("D:\\SE_Screenshots\\6_Report Generation is Successful.png");
 FileUtils.copyFile(src6,dst6);
 System.out.println("Report Generation is Successful");
-
+et.log(LogStatus.PASS, "Report Generation is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\6_Report Generation is Successful.png"));
+		
 // Creating new custom metric
 Thread.sleep(6000);		
 	rahul.findElement(By.xpath("//li[@id='result-view_Options']")).click();
@@ -273,7 +282,9 @@ File src7=rahul.getScreenshotAs(OutputType.FILE);
 File dst7=new File("D:\\SE_Screenshots\\7_New Custom Metric Creation is Successful.png");
 FileUtils.copyFile(src7,dst7);
 System.out.println("New Custom Metric Creation is Successful");
-	
+et.log(LogStatus.PASS, "New Custom Metric Creation is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\7_New Custom Metric Creation is Successful.png"));
+			
 
 	
  // Linking a Report	
@@ -326,7 +337,9 @@ File src8=rahul.getScreenshotAs(OutputType.FILE);
 File dst8=new File("D:\\SE_Screenshots\\8_Linking Report is Successful.png");
 FileUtils.copyFile(src8,dst8);
 System.out.println("Linking Report is Successful");
-
+et.log(LogStatus.PASS, "Linking Report is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\8_Linking Report is Successful.png"));
+		
 
 	rahul.findElement(By.xpath("//li[@data-menuname='backButton']")).click();
 	//Thread.sleep(9000);
@@ -355,7 +368,9 @@ Thread.sleep(3000);
 	File dst9=new File("D:\\SE_Screenshots\\9_New Custom Value Creation is Successful.png");
 	FileUtils.copyFile(src9,dst9);
 	System.out.println("New Custom Value Creation is Successful");	
-	
+	et.log(LogStatus.PASS, "New Custom Value Creation is Successful");
+	et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\9_New Custom Value Creation is Successful.png"));
+			
 	//Thread.sleep(3000);
 	rahul.findElement(By.xpath("(//span[@class='ui-btn-inner']/child::span[@class='ui-btn-text' and text()='Done'])[9]")).click();
 	//Thread.sleep(6000);
@@ -375,7 +390,9 @@ File src10=rahul.getScreenshotAs(OutputType.FILE);
 File dst10=new File("D:\\SE_Screenshots\\10_Adding Foot Note is Successful.png");
 FileUtils.copyFile(src10,dst10);
 System.out.println("Adding Foot Note is Successful");
-
+et.log(LogStatus.PASS, "Adding Foot Note is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\10_Adding Foot Note is Successful.png"));
+		
 	
 	
 //	Checking the Tabular View 
@@ -395,7 +412,9 @@ File src11=rahul.getScreenshotAs(OutputType.FILE);
 File dst11=new File("D:\\SE_Screenshots\\11_Applying Tablular View is Successful.png");
 FileUtils.copyFile(src11,dst11);
 System.out.println("Applying Tablular View is Successful");
-	
+et.log(LogStatus.PASS, "Applying Tablular View is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\11_Applying Tablular View is Successful.png"));
+			
 // ROW COLUMN FUNCTIONS
 
 	//Thread.sleep(10000);
@@ -412,7 +431,9 @@ File src12=rahul.getScreenshotAs(OutputType.FILE);
 File dst12=new File("D:\\SE_Screenshots\\12_Implementing Row_Column Function is Successful.png");
 FileUtils.copyFile(src12,dst12);
 System.out.println("Implementing Row/Column Function is Successful");
-	
+et.log(LogStatus.PASS, "Implementing Row/Column Function is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\12_Implementing Row_Column Function is Successful.png"));
+				
 //Charts validation
 
 	System.out.println("Charts Applied:-");
@@ -430,7 +451,9 @@ File src13=rahul.getScreenshotAs(OutputType.FILE);
 File dst13=new File("D:\\SE_Screenshots\\13_Horizontal Bar chart.png");
 FileUtils.copyFile(src13,dst13);
 System.out.println("Horizontal Bar Chart");
-	
+et.log(LogStatus.PASS, "Horizontal Bar Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\13_Horizontal Bar chart.png"));
+				
 //Vertical Bar Chart
 
 	rahul.findElement(By.xpath("//li[@class='ui-ir-icon-panelchart ui-desktopIcons report-Action']/descendant::span[@data-bind='text: $data.text' and text()='Chart']")).click(); //clicking on chart option
@@ -443,7 +466,9 @@ File src14=rahul.getScreenshotAs(OutputType.FILE);
 File dst14=new File("D:\\SE_Screenshots\\14_Vertical Bar chart.png");
 FileUtils.copyFile(src14,dst14);
 System.out.println("Vertical Bar Chart");
-	
+et.log(LogStatus.PASS, "Vertical Bar Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\14_Vertical Bar chart.png"));
+				
 //Pie Chart
 
 	rahul.findElement(By.xpath("//li[@class='ui-ir-icon-panelchart ui-desktopIcons report-Action']/descendant::span[@data-bind='text: $data.text' and text()='Chart']")).click(); //clicking on chart option
@@ -456,7 +481,9 @@ File src15=rahul.getScreenshotAs(OutputType.FILE);
 File dst15=new File("D:\\SE_Screenshots\\15_Pie Chart.png");
 FileUtils.copyFile(src15,dst15);	
 System.out.println("pie Chart");
-	
+et.log(LogStatus.PASS, "pie Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\15_Pie Chart.png"));
+					
 //TreeMap Chart
 
 	rahul.findElement(By.xpath("//li[@class='ui-ir-icon-panelchart ui-desktopIcons report-Action']/descendant::span[@data-bind='text: $data.text' and text()='Chart']")).click(); //clicking on chart option
@@ -469,7 +496,9 @@ File src16=rahul.getScreenshotAs(OutputType.FILE);
 File dst16=new File("D:\\SE_Screenshots\\16_TreeMap Chart.png");
 FileUtils.copyFile(src16,dst16);	
 System.out.println("TreeMap Chart");
-	
+et.log(LogStatus.PASS, "TreeMap Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\16_TreeMap Chart.png"));
+					
 		
 //Stacked Area Chart
 
@@ -483,7 +512,9 @@ File src17=rahul.getScreenshotAs(OutputType.FILE);
 File dst17=new File("D:\\SE_Screenshots\\17_Stacked Area Chart.png");
 FileUtils.copyFile(src17,dst17);		
 System.out.println("Stacked Area Chart");
-		
+et.log(LogStatus.PASS, "Stacked Area Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\17_Stacked Area Chart.png"));
+					
 //Funnel Chart
 
 	rahul.findElement(By.xpath("//li[@class='ui-ir-icon-panelchart ui-desktopIcons report-Action']/descendant::span[@data-bind='text: $data.text' and text()='Chart']")).click(); //clicking on chart option
@@ -496,7 +527,9 @@ File src18=rahul.getScreenshotAs(OutputType.FILE);
 File dst18=new File("D:\\SE_Screenshots\\18_Funnel chart.png");
 FileUtils.copyFile(src18,dst18);	
 System.out.println("Funnel Chart");
-		
+et.log(LogStatus.PASS, "Funnel Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\18_Funnel chart.png"));
+						
 		
 //Horizontal Target Bar Chart
 
@@ -519,8 +552,10 @@ File src19=rahul.getScreenshotAs(OutputType.FILE);
 File dst19=new File("D:\\SE_Screenshots\\19_Horizontal Target Bar Chart.png");
 FileUtils.copyFile(src19,dst19);	
 Thread.sleep(5000);
-		System.out.println("Horizontal Target Bar Chart");
-		
+System.out.println("Horizontal Target Bar Chart");
+et.log(LogStatus.PASS, "Horizontal Target Bar Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\19_Horizontal Target Bar Chart.png"));
+					
 		
 //Vertical Target Bar Chart
 		
@@ -535,7 +570,9 @@ Thread.sleep(3000);
 	FileUtils.copyFile(src20,dst20);	
 	//Thread.sleep(5000);
 	System.out.println("Vertical Target Bar Chart");	
-			
+	et.log(LogStatus.PASS, "Vertical Target Bar Chart");
+	et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\20_Vertical Target Bar Chart.png"));
+					
 
 
 //Mixed Line Chart	
@@ -564,6 +601,8 @@ File src21=rahul.getScreenshotAs(OutputType.FILE);
 File dst21=new File("D:\\SE_Screenshots\\21_Mixed Line Chart.png");
 FileUtils.copyFile(src21,dst21);	
 System.out.println("Mixed Line Chart");			
+et.log(LogStatus.PASS, "Mixed Line Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\21_Mixed Line Chart.png"));
 		
 //Tile Chart	
 
@@ -588,10 +627,14 @@ Thread.sleep(3000);
 File src22=rahul.getScreenshotAs(OutputType.FILE);
 File dst22=new File("D:\\SE_Screenshots\\22_Tile Chart.png");
 FileUtils.copyFile(src22,dst22);	
-System.out.println("Tile Chart");			
+System.out.println("Tile Chart");
+et.log(LogStatus.PASS, "Tile Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\22_Tile Chart.png"));
+	
 System.out.println("All Charts are compleated");
 
 System.out.println("Rahul Congrats!!! Automation Process Phase-I is Successfully compleated");
+et.log(LogStatus.PASS, "Automation Process Phase-I is Successfully compleated");
 System.out.println("");		
 
 
@@ -601,12 +644,6 @@ rahul.findElement(By.xpath("(//span[text()='Home'])[1]")).click();
 Thread.sleep(3000);
 rahul.findElement(By.xpath("(//span[@class='ui-btn-text' and text()='No'])[16]")).click();
 Thread.sleep(5000);
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-
 
 //Creating a New Report 
 	////////
@@ -677,11 +714,14 @@ File src23=rahul.getScreenshotAs(OutputType.FILE);
 File dst23=new File("D:\\SE_Screenshots\\23_New Report Creation is Successful.png");
 FileUtils.copyFile(src23,dst23);
 System.out.println("New Report Creation Process is Successful");
-
+et.log(LogStatus.PASS, "New Report Creation Process is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\23_New Report Creation is Successful.png"));
+	
 	
 //Deleting Report
 	///////
 	rahul.findElement(By.xpath("//span[text()='Test Save Report AUT_EX']/ancestor::li/descendant::span[@class='checkstyle']")).click();
+Thread.sleep(2000);
 	rahul.findElement(By.xpath("//span[text()='Test Save Report AUT_EX_Save As']/ancestor::li/descendant::span[@class='checkstyle']")).click();
 	///////
 	//Thread.sleep(2000);
@@ -694,12 +734,15 @@ System.out.println("New Report Creation Process is Successful");
 		
 	//findElement is not working in this scenerio so used WebDriverWait
 	
-	WebDriverWait w26=new WebDriverWait(rahul,50);
+	WebDriverWait w26=new WebDriverWait(rahul,100);
 	w26.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='Report(s) deleted successfully.']")));
 
 	rahul.findElement(By.xpath("(//span[@class='ui-btn-text' and text()='OK'])[2]")).click();
 
 Thread.sleep(4000);
+et.log(LogStatus.PASS,"Report Deleted Successful");
+
+	
 	rahul.findElement(By.xpath("//li[@data-menuname='Home']")).click();
 	Thread.sleep(15000);			
 
@@ -714,7 +757,7 @@ Thread.sleep(4000);
 Thread.sleep(4000);			
 	rahul.findElement(By.xpath("//*[text()='Automation Reports']")).click();
 	///
-	rahul.findElement(By.xpath("//*[@id='473']")).click();
+	rahul.findElement(By.xpath("(//*[@id='473'])[1]")).click();
 	////
 	Thread.sleep(15000);
 
@@ -722,7 +765,8 @@ Thread.sleep(4000);
 	File dst24=new File("D:\\SE_Screenshots\\24_Opening Existing Report is Successful.png");
 	FileUtils.copyFile(src24,dst24);
 	System.out.println("Opening Existing Report is Successful");
-
+	et.log(LogStatus.PASS, "Opening Existing Report is Successful");
+	et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\24_Opening Existing Report is Successful.png"));
 
 //Exporting the report
 
@@ -735,6 +779,8 @@ Thread.sleep(4000);
 	rahul.findElement(By.xpath("//li[@id='result-view_export' and @class='report-Action']")).click();
 				
 	Thread.sleep(5000);
+	et.log(LogStatus.PASS, "Report Exported Successfully");
+	
 
 			//unable to insert conditional wait since there is no element to find
 			//WebDriverWait w28=new WebDriverWait(rahul,50);
@@ -759,10 +805,12 @@ Thread.sleep(4000);
 	rahul.findElement(By.xpath("(//*[text()='Generate'][@data-bind='text: $data.text']) [last()-1]")).click();
 	Thread.sleep(9000);
 	File src26=rahul.getScreenshotAs(OutputType.FILE);
-	File dst26=new File("D:\\SE_Screenshots\\5_Applying Top Criteria is Successful.png");
+	File dst26=new File("D:\\SE_Screenshots\\25_Applying Top Criteria is Successful.png");
 	FileUtils.copyFile(src26,dst26);
 	System.out.println("Applying Top Criteria is Successful");
-					
+	et.log(LogStatus.PASS, "Applying Top Criteria is Successful");
+	et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\25_Applying Top Criteria is Successful.png"));
+				
 					
 		//unable to use WebDriverWait due to improper xpath
 		//WebDriverWait w30=new WebDriverWait(rahul,50);
@@ -806,10 +854,10 @@ Thread.sleep(4000);
 			File dst28=new File("D:\\SE_Screenshots\\28_New Custom Metric Creation is Successful.png");
 			FileUtils.copyFile(src28,dst28);
 			System.out.println("New Custom Metric Creation is Successful");
-				
-			
-
-			
+			et.log(LogStatus.PASS, "New Custom Metric Creation is Successful");
+			et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\28_New Custom Metric Creation is Successful.png"));
+						
+								
 
 			 // Linking a Report	
 				
@@ -855,7 +903,9 @@ Thread.sleep(4000);
 			File dst29=new File("D:\\SE_Screenshots\\29_Linking Report is Successful.png");
 			FileUtils.copyFile(src29,dst29);
 			System.out.println("Linking Report is Successful");
-
+			et.log(LogStatus.PASS, "Linking Report is Successful");
+			et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\29_Linking Report is Successful.png"));
+						
 
 				rahul.findElement(By.xpath("//li[@data-menuname='backButton']")).click();
 				//Thread.sleep(9000);
@@ -884,7 +934,9 @@ Thread.sleep(4000);
 	File dst30=new File("D:\\SE_Screenshots\\30_New Custom Value Creation is Successful_EX.png");
 	FileUtils.copyFile(src30,dst30);
 	System.out.println("New Custom Value Creation is Successful");	
-	
+	et.log(LogStatus.PASS, "New Custom Value Creation is Successful");
+	et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\30_New Custom Value Creation is Successful_EX.png"));
+				
 	//Thread.sleep(3000);
 	rahul.findElement(By.xpath("(//span[@class='ui-btn-inner']/child::span[@class='ui-btn-text' and text()='Done'])[9]")).click();
 	//Thread.sleep(6000);
@@ -904,6 +956,8 @@ File src31=rahul.getScreenshotAs(OutputType.FILE);
 File dst31=new File("D:\\SE_Screenshots\\31_Adding Foot Note is Successful_EX.png");
 FileUtils.copyFile(src31,dst31);
 System.out.println("Adding Foot Note is Successful");
+et.log(LogStatus.PASS, "Adding Foot Note is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\31_Adding Foot Note is Successful_EX.png"));
 
 
 	
@@ -924,6 +978,8 @@ File src32=rahul.getScreenshotAs(OutputType.FILE);
 File dst32=new File("D:\\SE_Screenshots\\32_Applying Tablular View is Successful.png");
 FileUtils.copyFile(src32,dst32);
 System.out.println("Applying Tablular View is Successful");
+et.log(LogStatus.PASS, "Applying Tablular View is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\32_Applying Tablular View is Successful.png"));
 	
 // ROW COLUMN FUNCTIONS
 
@@ -941,7 +997,9 @@ File src33=rahul.getScreenshotAs(OutputType.FILE);
 File dst33=new File("D:\\SE_Screenshots\\33_Implementing Row_Column Function is Successful.png");
 FileUtils.copyFile(src33,dst33);
 System.out.println("Implementing Row/Column Function is Successful");
-	
+et.log(LogStatus.PASS, "Implementing Row/Column Function is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\33_Implementing Row_Column Function is Successful.png"));
+		
 
 //Charts validation
 System.out.println("");
@@ -961,7 +1019,9 @@ File src34=rahul.getScreenshotAs(OutputType.FILE);
 File dst34=new File("D:\\SE_Screenshots\\34_Horizontal Bar chart.png");
 FileUtils.copyFile(src34,dst34);
 System.out.println("Horizontal Bar Chart");
-
+et.log(LogStatus.PASS, "Horizontal Bar Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\34_Horizontal Bar chart.png"));
+		
 //Vertical Bar Chart
 
 	rahul.findElement(By.xpath("//li[@class='ui-ir-icon-panelchart ui-desktopIcons report-Action']/descendant::span[@data-bind='text: $data.text' and text()='Chart']")).click(); //clicking on chart option
@@ -974,7 +1034,9 @@ File src35=rahul.getScreenshotAs(OutputType.FILE);
 File dst35=new File("D:\\SE_Screenshots\\35_Vertical Bar chart.png");
 FileUtils.copyFile(src35,dst35);
 System.out.println("Vertical Bar Chart");
-		
+et.log(LogStatus.PASS, "Vertical Bar Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\35_Vertical Bar chart.png"));
+				
 //Pie Chart
 
 	rahul.findElement(By.xpath("//li[@class='ui-ir-icon-panelchart ui-desktopIcons report-Action']/descendant::span[@data-bind='text: $data.text' and text()='Chart']")).click(); //clicking on chart option
@@ -987,7 +1049,9 @@ File src36=rahul.getScreenshotAs(OutputType.FILE);
 File dst36=new File("D:\\SE_Screenshots\\36_Pie Chart.png");
 FileUtils.copyFile(src36,dst36);	
 System.out.println("pie Chart");
-	
+et.log(LogStatus.PASS, "Pie Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\36_Pie Chart.png"));
+					
 //TreeMap Chart
 
 	rahul.findElement(By.xpath("//li[@class='ui-ir-icon-panelchart ui-desktopIcons report-Action']/descendant::span[@data-bind='text: $data.text' and text()='Chart']")).click(); //clicking on chart option
@@ -1000,7 +1064,9 @@ File src37=rahul.getScreenshotAs(OutputType.FILE);
 File dst37=new File("D:\\SE_Screenshots\\37_TreeMap Chart.png");
 FileUtils.copyFile(src37,dst37);	
 System.out.println("TreeMap Chart");
-	
+et.log(LogStatus.PASS, "TreeMap Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\37_TreeMap Chart.png"));
+						
 		
 //Stacked Area Chart
 
@@ -1014,7 +1080,9 @@ File src38=rahul.getScreenshotAs(OutputType.FILE);
 File dst38=new File("D:\\SE_Screenshots\\38_Stacked Area Chart.png");
 FileUtils.copyFile(src38,dst38);		
 System.out.println("Stacked Area Chart");
-	
+et.log(LogStatus.PASS, "Stacked Area Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\38_Stacked Area Chart.png"));	
+
 //Funnel Chart
 
 	rahul.findElement(By.xpath("//li[@class='ui-ir-icon-panelchart ui-desktopIcons report-Action']/descendant::span[@data-bind='text: $data.text' and text()='Chart']")).click(); //clicking on chart option
@@ -1027,7 +1095,8 @@ File src39=rahul.getScreenshotAs(OutputType.FILE);
 File dst39=new File("D:\\SE_Screenshots\\39_Funnel chart.png");
 FileUtils.copyFile(src39,dst39);	
 System.out.println("Funnel Chart");
-		
+et.log(LogStatus.PASS, "Funnel Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\39_Funnel chart.png"));			
 			
 //Horizontal Target Bar Chart
 
@@ -1050,8 +1119,10 @@ File src40=rahul.getScreenshotAs(OutputType.FILE);
 File dst40=new File("D:\\SE_Screenshots\\40_Horizontal Target Bar Chart.png");
 FileUtils.copyFile(src40,dst40);	
 Thread.sleep(5000);
-		System.out.println("Horizontal Target Bar Chart");
-		
+System.out.println("Horizontal Target Bar Chart");
+et.log(LogStatus.PASS, "Horizontal Target Bar Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\40_Horizontal Target Bar Chart.png"));			
+			
 			
 //Vertical Target Bar Chart
 		
@@ -1066,7 +1137,9 @@ Thread.sleep(3000);
 	FileUtils.copyFile(src41,dst41);	
 	//Thread.sleep(5000);
 	System.out.println("Vertical Target Bar Chart");	
-			
+	et.log(LogStatus.PASS, "Vertical Target Bar Chart");
+	et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\41_Vertical Target Bar Chart.png"));			
+					
 	
 
 //Mixed Line Chart	
@@ -1095,7 +1168,9 @@ File src42=rahul.getScreenshotAs(OutputType.FILE);
 File dst42=new File("D:\\SE_Screenshots\\42_Mixed Line Chart.png");
 FileUtils.copyFile(src42,dst42);	
 System.out.println("Mixed Line Chart");			
-
+et.log(LogStatus.PASS, "Mixed Line Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\42_Mixed Line Chart.png"));			
+			
 
 //Tile Chart	
 
@@ -1121,22 +1196,160 @@ File src43=rahul.getScreenshotAs(OutputType.FILE);
 File dst43=new File("D:\\SE_Screenshots\\43_Tile Chart.png");
 FileUtils.copyFile(src43,dst43);	
 System.out.println("Tile Chart");			
+et.log(LogStatus.PASS, "Tile Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\43_Tile Chart.png"));			
 System.out.println("All Charts are compleated");
-System.out.println("Rahul Congrats!!! Automation Process Phase-II is Successfully compleated");
+System.out.println("Rahul Congrats!!! Automation Process Phase-II is Successfully compleated");			
+et.log(LogStatus.PASS, "Automation Process Phase-II is Successfully compleated");
 
+try
+{
 
 // Adding Reports to Dashboard
 		rahul.findElement(By.xpath("(//span[text()='Home'])[1]")).click();			//clicking on Home button
-		rahul.findElement(By.xpath("(//span[@class='ui-btn-text' and text()='No'])[8]")).click();			//clicking on 'No' button while saving
-		rahul.findElement(By.id("Dashboard-Tile")).click();
-		rahul.findElement(By.xpath("(//span[text()='Dashboard Actions'])[1]")).click();
+	WebDriverWait w35=new WebDriverWait(rahul,50);
+	w35.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[text()='Save Confirm'])[5]")));
 		
+		rahul.findElement(By.xpath("(//span[@class='ui-btn-text' and text()='No'])[16]")).click();			//clicking on 'No' button while saving
+		rahul.findElement(By.xpath("//div[@tile-id='Dashboard-Tile']")).click();
+	Thread.sleep(5000);
+	
+		rahul.findElement(By.xpath("(//span[text()='Dashboard Actions'])[1]")).click();
+		rahul.findElement(By.xpath("(//span[text()='New Dashboard'])[1]")).click();	
+	Thread.sleep(2000);
+		rahul.findElement(By.xpath("(//span[text()='Add Report'])[1]")).click();
+	Thread.sleep(5000);	
+		rahul.findElement(By.xpath("//span[@class='dashboard-report-searchicon']")).click();
+		rahul.findElement(By.xpath("//input[@id='myFilter']")).sendKeys("Report Access Count_crd",Keys.ENTER);
+	
+		Actions a1=new Actions(rahul);
+		WebElement drag1=rahul.findElement(By.xpath("//a[text()='Report Access Count_crd']"));
+		WebElement drop1= rahul.findElement(By.xpath("//div[@id='dashboard-content']/div[@id='cell_R0C0']"));
+		a1.dragAndDrop(drag1,drop1).build().perform();
+		System.out.println("action part done");
+		Thread.sleep(5000);
+		rahul.findElement(By.xpath("(//div[@class='dashboard-widget-menu-icon'])[1]/div")).click();
+		rahul.findElement(By.xpath("(//li[@data-actionvalue='editReport'])[1]")).click();
+	//MOVING DOWN
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[1]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[1]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[1]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[1]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[1]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[1]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[1]")).click();
+			
+	//MOVING RIGHT
+		rahul.findElement(By.xpath("(//div[@class='ui-right-handler-out'])[1]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-right-handler-out'])[1]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-right-handler-out'])[1]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-right-handler-out'])[1]")).click();
+		
+		
+	//ADDING ANOTHER REPORT TO DASHBOARD
+		rahul.findElement(By.xpath("(//span[text()='Add Report'])[1]")).click();
+		
+		Actions a2=new Actions(rahul);
+		WebElement drag2=rahul.findElement(By.xpath("//a[text()='Test_Report Access Count_crd']"));
+		WebElement drop2= rahul.findElement(By.xpath("//div[@id='dashboard-content']/div[@id='cell_R0C6']"));
+		a2.dragAndDrop(drag2, drop2).build().perform();
+		Thread.sleep(5000);
+		rahul.findElement(By.xpath("//div[@id='dvReportsPanel']/descendant::span[@class='lm-ui-reports-panel-close']")).click();
+		rahul.findElement(By.xpath("(//div[@class='dashboard-widget-menu-icon'])[2]")).click();
+		rahul.findElement(By.xpath("(//li[@data-actionvalue='editReport'])[2]")).click();
+		
+	//MOVING RIGHT
+		rahul.findElement(By.xpath("(//div[@class='ui-right-handler-out'])[2]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-right-handler-out'])[2]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-right-handler-out'])[2]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-right-handler-out'])[2]")).click();	
+	//MOVING DOWN
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[2]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[2]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[2]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[2]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[2]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[2]")).click();
+		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[2]")).click();		
+Thread.sleep(2000);	
+File src44=rahul.getScreenshotAs(OutputType.FILE);
+File dst44=new File("D:\\SE_Screenshots\\44_Reports added to dashboard.png");
+FileUtils.copyFile(src44,dst44);	
+et.log(LogStatus.PASS, "Reports added to Dashboard");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\44_Reports added to dashboard.png"));
+
+	// Save Report	
+		rahul.findElement(By.xpath("(//div[@class='ui-desktopMenu'])[2]/descendant::span[text()='Save']")).click();
+		rahul.findElement(By.xpath("(//*[@name='name' and @id='rptName'])[1]")).sendKeys("Dashboard_1 TEST-AUT");
+		rahul.findElement(By.xpath("//a[@data-bind='click:saveDashboardWithConfirm']")).click();
+		et.log(LogStatus.PASS, "Save report");
+				
+	WebDriverWait w36=new WebDriverWait(rahul,100);
+	w36.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[text()='Home'])[1]")));
+	
+	// Save As Report
+		rahul.findElement(By.xpath("(//div[@class='ui-desktopMenu'])/descendant::span[text()='Save As']")).click();
+		rahul.findElement(By.xpath("(//*[@name='name' and @id='rptName'])[1]")).clear();
+		rahul.findElement(By.xpath("(//*[@name='name' and @id='rptName'])[1]")).sendKeys("Dashboard_2 TEST-AUT");
+		rahul.findElement(By.xpath("//a[@data-bind='click:saveDashboardWithConfirm']")).click();
+	WebDriverWait w37=new WebDriverWait(rahul,100);
+	w37.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[text()='Home'])[1]")));
+	et.log(LogStatus.PASS, "Save As Report");
+	
+
+	
+	// Storyboard creation
+		
+		rahul.findElement(By.xpath("(//span[text()='Dashboards'])[1]")).click();
+Thread.sleep(2000);		
+		rahul.findElement(By.xpath("(//span[text()='Storyboard Actions'])[1]")).click();
+		rahul.findElement(By.xpath("((//span[text()='Storyboard Actions'])[1]/following::span[text()='New'])[1]")).click();
+		rahul.findElement(By.xpath("//input[@id='txtStoryName']")).sendKeys("Storyboard_TEST-AUT");
+		rahul.findElement(By.xpath("(//span[text()='Save Storyboard']/following::span[text()='Done'])[1]")).click();
+	Thread.sleep(3000);
+		rahul.findElement(By.xpath("(//span[text()='Dashboard_1 TEST-AUT']/preceding::span[@class='checkstyle'])[last()]")).click();
+		rahul.findElement(By.xpath("(//span[text()='Dashboard_2 TEST-AUT']/preceding::span[@class='checkstyle'])[last()]")).click();
+		rahul.findElement(By.xpath("(//span[text()='Dashboard Actions'])[1]")).click();
+		rahul.findElement(By.xpath("(//span[text()='Move To Storyboard'])[1]")).click();
+		Select drp_storyboard=new Select(rahul.findElement(By.xpath("//select[@id='select-StoryName']")));
+		drp_storyboard.selectByVisibleText("Storyboard_TEST-AUT");
+		rahul.findElement(By.xpath("(//span[text()='Select Storyboard']/following::span[text()='Done'])[1]")).click();
+Thread.sleep(3000);	
+
+		rahul.findElement(By.xpath("(//span[text()='Home'])[1]")).click();
+Thread.sleep(5000);			
+		rahul.findElement(By.xpath("(//span[text()='Storyboard_TEST-AUT'])")).click();
+	Thread.sleep(5000);	
+		rahul.findElement(By.xpath("(//span[text()='Options'])[1]")).click();
+		rahul.findElement(By.xpath("(//span[text()='Add Dashboards to Powerpoint'])[1]")).click();
+		rahul.findElement(By.xpath("(//span[text()='Add Dashboards to Powerpoint'])[3]/following::span[text()='Select All']")).click();
+		rahul.findElement(By.xpath("(//span[text()='Add Dashboards to Powerpoint'])[3]/following::span[text()='Done']")).click();
+	WebDriverWait w38=new WebDriverWait(rahul,100);
+	w38.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Selected Dashboard(s) added to PPT successfully.']")));
+		rahul.findElement(By.xpath("//*[text()='Selected Dashboard(s) added to PPT successfully.']/following::span[text()='OK']")).click();
+		File src45=rahul.getScreenshotAs(OutputType.FILE);
+		File dst45=new File("D:\\SE_Screenshots\\45_Dashboards added to Storyboard.png");
+		FileUtils.copyFile(src45,dst45);	
+		et.log(LogStatus.PASS, "Dashboards added to Storyboard");
+		et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\45_Dashboards added to Storyboard.png"));
+
+		rahul.findElement(By.xpath("(//span[text()='Options'])[1]")).click();
+		rahul.findElement(By.xpath("(//span[text()='View Powerpoint Images'])[1]")).click();
+		rahul.findElement(By.xpath("(//span[text()='Export to PPT'])[1]")).click();
+		et.log(LogStatus.PASS, "Total Validation is done");
 
 
+System.exit(0);
 
+}
+catch(Exception e)
+{
+	System.out.println(e.getMessage());
+	System.exit(0);
+}
 
-
-
+er.endTest(et);
+er.flush();
 }//Try block ended
 	catch(Exception e)
 		{
