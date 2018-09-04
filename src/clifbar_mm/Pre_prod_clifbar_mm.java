@@ -28,7 +28,7 @@ public class Pre_prod_clifbar_mm {
 		System.setProperty("webdriver.chrome.driver", "E:\\myse\\drivers\\chromedriver.exe");
 		ChromeDriver rahul= new ChromeDriver();
 		
-ExtentReports er=new ExtentReports("ClifbarResults.html",true);
+ExtentReports er=new ExtentReports("E:\\myse\\Workspace_eclipse\\clifbar_mm\\ClifbarResults.html",true);
 ExtentTest et=er.startTest("Clifbar Pre-Prod Validation");		
 	rahul.manage().deleteAllCookies();
 	rahul.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
@@ -753,7 +753,7 @@ et.log(LogStatus.PASS,"Report Deleted Successful");
 		//Thread.sleep(5000);	
 			
 	WebDriverWait w27=new WebDriverWait(rahul,50);
-	w27.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='NewReportlist']")));
+	w27.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='NewReportlist']")));
 Thread.sleep(4000);			
 	rahul.findElement(By.xpath("//*[text()='Automation Reports']")).click();
 	///
@@ -1202,8 +1202,6 @@ System.out.println("All Charts are compleated");
 System.out.println("Rahul Congrats!!! Automation Process Phase-II is Successfully compleated");			
 et.log(LogStatus.PASS, "Automation Process Phase-II is Successfully compleated");
 
-try
-{
 
 // Adding Reports to Dashboard
 		rahul.findElement(By.xpath("(//span[text()='Home'])[1]")).click();			//clicking on Home button
@@ -1226,7 +1224,6 @@ try
 		WebElement drag1=rahul.findElement(By.xpath("//a[text()='Report Access Count_crd']"));
 		WebElement drop1= rahul.findElement(By.xpath("//div[@id='dashboard-content']/div[@id='cell_R0C0']"));
 		a1.dragAndDrop(drag1,drop1).build().perform();
-		System.out.println("action part done");
 		Thread.sleep(5000);
 		rahul.findElement(By.xpath("(//div[@class='dashboard-widget-menu-icon'])[1]/div")).click();
 		rahul.findElement(By.xpath("(//li[@data-actionvalue='editReport'])[1]")).click();
@@ -1336,21 +1333,33 @@ Thread.sleep(5000);
 		rahul.findElement(By.xpath("(//span[text()='Options'])[1]")).click();
 		rahul.findElement(By.xpath("(//span[text()='View Powerpoint Images'])[1]")).click();
 		rahul.findElement(By.xpath("(//span[text()='Export to PPT'])[1]")).click();
-		et.log(LogStatus.PASS, "Total Validation is done");
-
-
-System.exit(0);
-
-}
-catch(Exception e)
-{
-	System.out.println(e.getMessage());
-	System.exit(0);
-}
+		et.log(LogStatus.PASS, "Export to PPT is done");
+		Thread.sleep(3000);
+		rahul.findElement(By.xpath("(//span[text()='Home'])[1]")).click();			//clicking on Home button
+		rahul.findElement(By.xpath("//div[@tile-id='Dashboard-Tile']")).click();
+		WebDriverWait w39=new WebDriverWait(rahul,100);
+		w39.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[text()='Storyboard_TEST-AUT'])[2]")));
+		Thread.sleep(5200);
+		rahul.findElement(By.xpath("(//span[text()='Storyboard_TEST-AUT']/preceding::span[@class='checkstyle'])[last()]")).click();
+		rahul.findElement(By.xpath("(//span[text()='Storyboard Actions'])[1]")).click();
+		rahul.findElement(By.xpath("((//span[text()='Storyboard Actions'])[1]/following::span[text()='Delete'])[1]")).click();
+		rahul.findElement(By.xpath("((//span[text()='Delete Storyboard(s)']/following::h3[text()='Are you sure, you want to delete selected Storyboard(s)?'])[1]/following::span[text()='Yes'])[1]")).click();
+		Thread.sleep(8200);
+		et.log(LogStatus.PASS, "Storyboard Deleted Successfully");
+		rahul.findElement(By.xpath("(//span[text()='Home'])[1]")).click();	
+		rahul.findElement(By.xpath("//span[@class='ui-person']")).click();
+		rahul.findElement(By.xpath("//a[text()='Logout']")).click();
+		et.log(LogStatus.PASS, "Logged out Successfully");
+		
 
 er.endTest(et);
 er.flush();
-}//Try block ended
+System.exit(0);
+}		//Try block ended
+
+
+
+
 	catch(Exception e)
 		{
 		System.out.println(e);
