@@ -36,9 +36,7 @@ ExtentTest et=er.startTest("Clifbar Pre-Prod Validation");
 	rahul.get("http://cb-mm-qa.info-rhythm.com/home");	
 	rahul.manage().window().maximize();
 System.out.println("Website loaded Successfully");	
-et.log(LogStatus.PASS, "Website loaded Successfully");
-
-
+et.log(LogStatus.PASS, "Website loaded successfully");
 
 try
 {
@@ -47,17 +45,17 @@ try
 	rahul.findElement(By.xpath("//a[@id='loginButton']")).click();
 	////////
 	WebDriverWait w1=new WebDriverWait(rahul,50);
-	w1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='rpt-thumbnails lg-tile' and @tile-id='6']")));
+	w1.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='rpt-thumbnails lg-tile' and @tile-id='6']")));
 	//Thread.sleep(25000);
 	////////
 File src1=rahul.getScreenshotAs(OutputType.FILE);
 File dst1=new File("D:\\SE_Screenshots\\1_LoginSuccesful.png");
 FileUtils.copyFile(src1,dst1);
-System.out.println("Login Succesful");
-et.log(LogStatus.PASS, "Login Succesful");
+System.out.println("Login Successful");
+et.log(LogStatus.PASS, "Login Successful");
 et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\1_LoginSuccesful.png"));
 
-Thread.sleep(9000);
+//Thread.sleep(9000);
 
 //Creating a New Report 
 	////////
@@ -116,7 +114,6 @@ Thread.sleep(5000);
 	rahul.findElement(By.xpath("(//span[@class='ui-btn-text' and text()='Done'])[7]")).click();	
 	//Thread.sleep(10000);
 	rahul.findElement(By.xpath("//li[@data-menuname='backButton']")).click();
-	
 	
 	//WebDriverWait w4=new WebDriverWait(rahul,50);
 	//w4.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='NewReportlist']")));
@@ -295,7 +292,7 @@ et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\7_New Custom Met
 	Thread.sleep(5000);
 	rahul.findElement(By.xpath("(//a[@class='report-link ui-link'])[1]")).click();
 
-Thread.sleep(5000); //This need to be maintained since there is a minute page loading going on
+Thread.sleep(7000); //This need to be maintained since there is a minute page loading going on
 	
 	rahul.findElement(By.xpath("//span[@class='ui-btn-text' and contains(text(),'Reports')]//parent::span[@class='ui-btn-text']")).click();
 	
@@ -411,9 +408,9 @@ Thread.sleep(8000); // //Need to wait till the page is loaded for report generat
 File src11=rahul.getScreenshotAs(OutputType.FILE);
 File dst11=new File("D:\\SE_Screenshots\\11_Applying Tablular View is Successful.png");
 FileUtils.copyFile(src11,dst11);
-System.out.println("Applying Tablular View is Successful");
-et.log(LogStatus.PASS, "Applying Tablular View is Successful");
-et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\11_Applying Tablular View is Successful.png"));
+System.out.println("Applying Tabular View is Successful");
+et.log(LogStatus.PASS, "Applying Tabular View is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\11_Applying Tabular View is Successful.png"));
 			
 // ROW COLUMN FUNCTIONS
 
@@ -480,11 +477,11 @@ Thread.sleep(3000);
 File src15=rahul.getScreenshotAs(OutputType.FILE);
 File dst15=new File("D:\\SE_Screenshots\\15_Pie Chart.png");
 FileUtils.copyFile(src15,dst15);	
-System.out.println("pie Chart");
-et.log(LogStatus.PASS, "pie Chart");
+System.out.println("Pie Chart");
+et.log(LogStatus.PASS, "Pie Chart");
 et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\15_Pie Chart.png"));
 					
-//TreeMap Chart
+//Tree Map Chart
 
 	rahul.findElement(By.xpath("//li[@class='ui-ir-icon-panelchart ui-desktopIcons report-Action']/descendant::span[@data-bind='text: $data.text' and text()='Chart']")).click(); //clicking on chart option
 	//Thread.sleep(3000);
@@ -493,11 +490,11 @@ et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\15_Pie Chart.png
 	rahul.findElement(By.xpath("//a[text()='TreeMap Chart']")).click();
 Thread.sleep(3000);
 File src16=rahul.getScreenshotAs(OutputType.FILE);
-File dst16=new File("D:\\SE_Screenshots\\16_TreeMap Chart.png");
+File dst16=new File("D:\\SE_Screenshots\\16_Tree Map Chart.png");
 FileUtils.copyFile(src16,dst16);	
-System.out.println("TreeMap Chart");
-et.log(LogStatus.PASS, "TreeMap Chart");
-et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\16_TreeMap Chart.png"));
+System.out.println("Tree Map Chart");
+et.log(LogStatus.PASS, "Tree Map Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\16_Tree Map Chart.png"));
 					
 		
 //Stacked Area Chart
@@ -631,10 +628,10 @@ System.out.println("Tile Chart");
 et.log(LogStatus.PASS, "Tile Chart");
 et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\22_Tile Chart.png"));
 	
-System.out.println("All Charts are compleated");
+System.out.println("All Charts are completed");
 
-System.out.println("Rahul Congrats!!! Automation Process Phase-I is Successfully compleated");
-et.log(LogStatus.PASS, "Automation Process Phase-I is Successfully compleated");
+System.out.println("Rahul Congrats!!! Automation Process Phase-I is Successfully completed");
+et.log(LogStatus.PASS, "Automation Process Phase-I is Successfully completed");
 System.out.println("");		
 
 
@@ -975,11 +972,11 @@ et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\31_Adding Foot N
 
 Thread.sleep(8000); // //Need to wait till the page is loaded for report generation
 File src32=rahul.getScreenshotAs(OutputType.FILE);
-File dst32=new File("D:\\SE_Screenshots\\32_Applying Tablular View is Successful.png");
+File dst32=new File("D:\\SE_Screenshots\\32_Applying Tabular View is Successful.png");
 FileUtils.copyFile(src32,dst32);
-System.out.println("Applying Tablular View is Successful");
-et.log(LogStatus.PASS, "Applying Tablular View is Successful");
-et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\32_Applying Tablular View is Successful.png"));
+System.out.println("Applying Tabular View is Successful");
+et.log(LogStatus.PASS, "Applying Tabular View is Successful");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\32_Applying Tabular View is Successful.png"));
 	
 // ROW COLUMN FUNCTIONS
 
@@ -1048,11 +1045,11 @@ Thread.sleep(3000);
 File src36=rahul.getScreenshotAs(OutputType.FILE);
 File dst36=new File("D:\\SE_Screenshots\\36_Pie Chart.png");
 FileUtils.copyFile(src36,dst36);	
-System.out.println("pie Chart");
+System.out.println("Pie Chart");
 et.log(LogStatus.PASS, "Pie Chart");
 et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\36_Pie Chart.png"));
 					
-//TreeMap Chart
+//Tree Map Chart
 
 	rahul.findElement(By.xpath("//li[@class='ui-ir-icon-panelchart ui-desktopIcons report-Action']/descendant::span[@data-bind='text: $data.text' and text()='Chart']")).click(); //clicking on chart option
 	//Thread.sleep(3000);
@@ -1061,11 +1058,11 @@ et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\36_Pie Chart.png
 	rahul.findElement(By.xpath("//a[text()='TreeMap Chart']")).click();
 Thread.sleep(3000);
 File src37=rahul.getScreenshotAs(OutputType.FILE);
-File dst37=new File("D:\\SE_Screenshots\\37_TreeMap Chart.png");
+File dst37=new File("D:\\SE_Screenshots\\37_Tree Map Chart.png");
 FileUtils.copyFile(src37,dst37);	
-System.out.println("TreeMap Chart");
-et.log(LogStatus.PASS, "TreeMap Chart");
-et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\37_TreeMap Chart.png"));
+System.out.println("Tree Map Chart");
+et.log(LogStatus.PASS, "Tree Map Chart");
+et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\37_Tree Map Chart.png"));
 						
 		
 //Stacked Area Chart
@@ -1198,10 +1195,9 @@ FileUtils.copyFile(src43,dst43);
 System.out.println("Tile Chart");			
 et.log(LogStatus.PASS, "Tile Chart");
 et.log(LogStatus.PASS, et.addScreenCapture("D:\\SE_Screenshots\\43_Tile Chart.png"));			
-System.out.println("All Charts are compleated");
-System.out.println("Rahul Congrats!!! Automation Process Phase-II is Successfully compleated");			
-et.log(LogStatus.PASS, "Automation Process Phase-II is Successfully compleated");
+System.out.println("All Charts are completed");
 
+Thread.sleep(3000);
 
 // Adding Reports to Dashboard
 		rahul.findElement(By.xpath("(//span[text()='Home'])[1]")).click();			//clicking on Home button
@@ -1269,6 +1265,7 @@ et.log(LogStatus.PASS, "Automation Process Phase-II is Successfully compleated")
 		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[2]")).click();
 		rahul.findElement(By.xpath("(//div[@class='ui-bottom-handler-out'])[2]")).click();		
 Thread.sleep(2000);	
+System.out.println("Reports added to Dashboard");
 File src44=rahul.getScreenshotAs(OutputType.FILE);
 File dst44=new File("D:\\SE_Screenshots\\44_Reports added to dashboard.png");
 FileUtils.copyFile(src44,dst44);	
@@ -1324,6 +1321,7 @@ Thread.sleep(5000);
 	WebDriverWait w38=new WebDriverWait(rahul,100);
 	w38.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Selected Dashboard(s) added to PPT successfully.']")));
 		rahul.findElement(By.xpath("//*[text()='Selected Dashboard(s) added to PPT successfully.']/following::span[text()='OK']")).click();
+		System.out.println("Dashboards added to Storyboard");
 		File src45=rahul.getScreenshotAs(OutputType.FILE);
 		File dst45=new File("D:\\SE_Screenshots\\45_Dashboards added to Storyboard.png");
 		FileUtils.copyFile(src45,dst45);	
@@ -1339,18 +1337,24 @@ Thread.sleep(5000);
 		rahul.findElement(By.xpath("//div[@tile-id='Dashboard-Tile']")).click();
 		WebDriverWait w39=new WebDriverWait(rahul,100);
 		w39.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[text()='Storyboard_TEST-AUT'])[2]")));
-		Thread.sleep(5200);
-		rahul.findElement(By.xpath("(//span[text()='Storyboard_TEST-AUT']/preceding::span[@class='checkstyle'])[last()]")).click();
+		Thread.sleep(6000);
+		Actions a3=new Actions(rahul);
+		WebElement a=rahul.findElement(By.xpath("(//span[text()='Storyboard_TEST-AUT']/preceding::span[@class='checkstyle'])[last()]"));
+		a3.click(a).build().perform();
+		//rahul.findElement(By.xpath("(//span[text()='Storyboard_TEST-AUT']/preceding::span[@class='checkstyle'])[last()]")).click();
+		Thread.sleep(3000);
 		rahul.findElement(By.xpath("(//span[text()='Storyboard Actions'])[1]")).click();
 		rahul.findElement(By.xpath("((//span[text()='Storyboard Actions'])[1]/following::span[text()='Delete'])[1]")).click();
 		rahul.findElement(By.xpath("((//span[text()='Delete Storyboard(s)']/following::h3[text()='Are you sure, you want to delete selected Storyboard(s)?'])[1]/following::span[text()='Yes'])[1]")).click();
 		Thread.sleep(8200);
+		System.out.println("Storyboard Deleted Successfully");
 		et.log(LogStatus.PASS, "Storyboard Deleted Successfully");
 		rahul.findElement(By.xpath("(//span[text()='Home'])[1]")).click();	
 		rahul.findElement(By.xpath("//span[@class='ui-person']")).click();
 		rahul.findElement(By.xpath("//a[text()='Logout']")).click();
 		et.log(LogStatus.PASS, "Logged out Successfully");
-		
+		System.out.println("Rahul Congrats!!! Automation Process Phase-II is Successfully compleated");			
+		et.log(LogStatus.PASS, "Automation Process Phase-II is Successfully compleated");
 
 er.endTest(et);
 er.flush();
@@ -1358,10 +1362,10 @@ System.exit(0);
 }		//Try block ended
 
 
-
-
 	catch(Exception e)
 		{
+		er.endTest(et);
+		er.flush();
 		System.out.println(e);
 		System.exit(0);
 		}
